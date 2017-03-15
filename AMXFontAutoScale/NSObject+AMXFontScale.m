@@ -13,7 +13,6 @@
 
 + (void)amx_swizzleInstanceSelector:(SEL)fromSelector withSelector:(SEL)toSelector
 {
-    
     Class class = [self class];
     
     Method origMethod = class_getInstanceMethod(self, fromSelector);
@@ -32,7 +31,6 @@
     } else {
         method_exchangeImplementations(origMethod, overrideMethod);
     }
-    
 }
 
 + (void)amx_swizzleClassSelector:(SEL)fromSelector withSelector:(SEL)toSelector
@@ -40,6 +38,16 @@
     Method origMethod = class_getClassMethod(self, fromSelector);
     Method overrideMethod = class_getClassMethod(self, toSelector);
     method_exchangeImplementations(origMethod, overrideMethod);
+}
+
+- (void)amx_storeObject:(id)object forKey:(const void *)key
+{
+    objc_setAssociatedObject(self, key, object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (id)amx_getObjectForKey:(const void *)key
+{
+    return objc_getAssociatedObject(self, key);
 }
 
 @end

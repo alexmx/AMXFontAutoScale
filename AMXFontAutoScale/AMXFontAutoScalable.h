@@ -10,19 +10,26 @@
 #define AMXFontAutoScalable_h
 
 typedef NS_ENUM(NSInteger, AMXScreenSize) {
-    AMXScreenSize_3_5,
-    AMXScreenSize_4,
-    AMXScreenSize_4_7,
-    AMXScreenSize_5_5,
-    AMXScreenSize_7_9,
-    AMXScreenSize_9_7,
-    AMXScreenSize_12_9,
-    AMXScreenSizeCurrent
+    AMXScreenSizeCurrent,
+    AMXScreenSize3p5Inch,
+    AMXScreenSize4Inch,
+    AMXScreenSize4p7Inch,
+    AMXScreenSize5p5Inch,
+    AMXScreenSize7p9Inch,
+    AMXScreenSize9p7Inch,
+    AMXScreenSize12p9Inch
 };
 
 @protocol AMXFontAutoScalable <NSObject>
 
-- (void)amx_keepOriginalFontSizeForScreenSize:(AMXScreenSize)screenSize;
+@property (nonatomic, assign, setter=set_amx_autoScaleEndabled:) BOOL amx_autoScaleEndabled;
+@property (nonatomic, class, setter=set_amx_autoScaleEndabled:) BOOL amx_autoScaleEndabled;
+
+@property (nonatomic, assign, setter=set_amx_referenceScreenSize:) AMXScreenSize amx_referenceScreenSize;
+@property (nonatomic, class, setter=set_amx_referenceScreenSize:) AMXScreenSize amx_referenceScreenSize;
+
++ (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize;
+- (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize;
 
 @end
 

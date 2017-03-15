@@ -7,14 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD1E1FE11E81BA31000CD4B7 /* UITextView+AMXFontScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CD1E1FDF1E81BA31000CD4B7 /* UITextView+AMXFontScale.h */; };
+		CD1E1FE21E81BA31000CD4B7 /* UITextView+AMXFontScale.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E1FE01E81BA31000CD4B7 /* UITextView+AMXFontScale.m */; };
 		CDD513011E797C8800B73B75 /* AMXFontAutoScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD512FF1E797C8800B73B75 /* AMXFontAutoScale.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDD513091E797D7300B73B75 /* UILabel+AMXFontScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD513071E797D7300B73B75 /* UILabel+AMXFontScale.h */; };
+		CDD513091E797D7300B73B75 /* UILabel+AMXFontScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD513071E797D7300B73B75 /* UILabel+AMXFontScale.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDD5130A1E797D7300B73B75 /* UILabel+AMXFontScale.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD513081E797D7300B73B75 /* UILabel+AMXFontScale.m */; };
 		CDD513151E79885800B73B75 /* NSObject+AMXFontScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD513131E79885800B73B75 /* NSObject+AMXFontScale.h */; };
 		CDD513161E79885800B73B75 /* NSObject+AMXFontScale.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD513141E79885800B73B75 /* NSObject+AMXFontScale.m */; };
+		CDD513391E79908C00B73B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD513381E79908C00B73B75 /* AppDelegate.swift */; };
+		CDD5133E1E79908C00B73B75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD5133C1E79908C00B73B75 /* Main.storyboard */; };
+		CDD513401E79908C00B73B75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD5133F1E79908C00B73B75 /* Assets.xcassets */; };
+		CDD513431E79908C00B73B75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD513411E79908C00B73B75 /* LaunchScreen.storyboard */; };
+		CDD513481E79919100B73B75 /* AMXFontAutoScale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD512FC1E797C8800B73B75 /* AMXFontAutoScale.framework */; };
+		CDD513491E79919100B73B75 /* AMXFontAutoScale.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDD512FC1E797C8800B73B75 /* AMXFontAutoScale.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CDD5134F1E799A9F00B73B75 /* UIFont+AMXFontScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD5134D1E799A9F00B73B75 /* UIFont+AMXFontScale.h */; };
+		CDD513501E799A9F00B73B75 /* UIFont+AMXFontScale.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5134E1E799A9F00B73B75 /* UIFont+AMXFontScale.m */; };
+		CDD513551E79AFC600B73B75 /* AMXFontAutoScalable.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD5130D1E797E2500B73B75 /* AMXFontAutoScalable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CDD5134A1E79919100B73B75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDD512F31E797C8800B73B75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDD512FB1E797C8800B73B75;
+			remoteInfo = AMXFontAutoScale;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CDD5134C1E79919100B73B75 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CDD513491E79919100B73B75 /* AMXFontAutoScale.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		CD1E1FDF1E81BA31000CD4B7 /* UITextView+AMXFontScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+AMXFontScale.h"; sourceTree = "<group>"; };
+		CD1E1FE01E81BA31000CD4B7 /* UITextView+AMXFontScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+AMXFontScale.m"; sourceTree = "<group>"; };
 		CDD512FC1E797C8800B73B75 /* AMXFontAutoScale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AMXFontAutoScale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD512FF1E797C8800B73B75 /* AMXFontAutoScale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMXFontAutoScale.h; sourceTree = "<group>"; };
 		CDD513001E797C8800B73B75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -23,6 +60,14 @@
 		CDD5130D1E797E2500B73B75 /* AMXFontAutoScalable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMXFontAutoScalable.h; sourceTree = "<group>"; };
 		CDD513131E79885800B73B75 /* NSObject+AMXFontScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AMXFontScale.h"; sourceTree = "<group>"; };
 		CDD513141E79885800B73B75 /* NSObject+AMXFontScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AMXFontScale.m"; sourceTree = "<group>"; };
+		CDD513361E79908C00B73B75 /* AMXFontAutoScaleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMXFontAutoScaleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDD513381E79908C00B73B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CDD5133D1E79908C00B73B75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CDD5133F1E79908C00B73B75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CDD513421E79908C00B73B75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CDD513441E79908C00B73B75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDD5134D1E799A9F00B73B75 /* UIFont+AMXFontScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+AMXFontScale.h"; sourceTree = "<group>"; };
+		CDD5134E1E799A9F00B73B75 /* UIFont+AMXFontScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+AMXFontScale.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +78,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CDD513331E79908C00B73B75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD513481E79919100B73B75 /* AMXFontAutoScale.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -40,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD512FE1E797C8800B73B75 /* AMXFontAutoScale */,
+				CDD513371E79908C00B73B75 /* AMXFontAutoScaleDemo */,
 				CDD512FD1E797C8800B73B75 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD512FC1E797C8800B73B75 /* AMXFontAutoScale.framework */,
+				CDD513361E79908C00B73B75 /* AMXFontAutoScaleDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +125,10 @@
 				CDD513141E79885800B73B75 /* NSObject+AMXFontScale.m */,
 				CDD513071E797D7300B73B75 /* UILabel+AMXFontScale.h */,
 				CDD513081E797D7300B73B75 /* UILabel+AMXFontScale.m */,
+				CD1E1FDF1E81BA31000CD4B7 /* UITextView+AMXFontScale.h */,
+				CD1E1FE01E81BA31000CD4B7 /* UITextView+AMXFontScale.m */,
+				CDD5134D1E799A9F00B73B75 /* UIFont+AMXFontScale.h */,
+				CDD5134E1E799A9F00B73B75 /* UIFont+AMXFontScale.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -82,6 +141,18 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		CDD513371E79908C00B73B75 /* AMXFontAutoScaleDemo */ = {
+			isa = PBXGroup;
+			children = (
+				CDD513381E79908C00B73B75 /* AppDelegate.swift */,
+				CDD5133C1E79908C00B73B75 /* Main.storyboard */,
+				CDD5133F1E79908C00B73B75 /* Assets.xcassets */,
+				CDD513411E79908C00B73B75 /* LaunchScreen.storyboard */,
+				CDD513441E79908C00B73B75 /* Info.plist */,
+			);
+			path = AMXFontAutoScaleDemo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -89,9 +160,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDD513151E79885800B73B75 /* NSObject+AMXFontScale.h in Headers */,
 				CDD513091E797D7300B73B75 /* UILabel+AMXFontScale.h in Headers */,
+				CD1E1FE11E81BA31000CD4B7 /* UITextView+AMXFontScale.h in Headers */,
+				CDD513151E79885800B73B75 /* NSObject+AMXFontScale.h in Headers */,
+				CDD513551E79AFC600B73B75 /* AMXFontAutoScalable.h in Headers */,
 				CDD513011E797C8800B73B75 /* AMXFontAutoScale.h in Headers */,
+				CDD5134F1E799A9F00B73B75 /* UIFont+AMXFontScale.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +190,25 @@
 			productReference = CDD512FC1E797C8800B73B75 /* AMXFontAutoScale.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		CDD513351E79908C00B73B75 /* AMXFontAutoScaleDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDD513471E79908C00B73B75 /* Build configuration list for PBXNativeTarget "AMXFontAutoScaleDemo" */;
+			buildPhases = (
+				CDD513321E79908C00B73B75 /* Sources */,
+				CDD513331E79908C00B73B75 /* Frameworks */,
+				CDD513341E79908C00B73B75 /* Resources */,
+				CDD5134C1E79919100B73B75 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDD5134B1E79919100B73B75 /* PBXTargetDependency */,
+			);
+			name = AMXFontAutoScaleDemo;
+			productName = AMXFontAutoScaleDemo;
+			productReference = CDD513361E79908C00B73B75 /* AMXFontAutoScaleDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -123,10 +216,16 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AMX;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Alex Maimescu";
 				TargetAttributes = {
 					CDD512FB1E797C8800B73B75 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = EUYNN6V95H;
+						ProvisioningStyle = Automatic;
+					};
+					CDD513351E79908C00B73B75 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = EUYNN6V95H;
 						ProvisioningStyle = Automatic;
@@ -139,6 +238,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CDD512F21E797C8800B73B75;
 			productRefGroup = CDD512FD1E797C8800B73B75 /* Products */;
@@ -146,6 +246,7 @@
 			projectRoot = "";
 			targets = (
 				CDD512FB1E797C8800B73B75 /* AMXFontAutoScale */,
+				CDD513351E79908C00B73B75 /* AMXFontAutoScaleDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -158,6 +259,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CDD513341E79908C00B73B75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD513431E79908C00B73B75 /* LaunchScreen.storyboard in Resources */,
+				CDD513401E79908C00B73B75 /* Assets.xcassets in Resources */,
+				CDD5133E1E79908C00B73B75 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -165,12 +276,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD513501E799A9F00B73B75 /* UIFont+AMXFontScale.m in Sources */,
 				CDD513161E79885800B73B75 /* NSObject+AMXFontScale.m in Sources */,
 				CDD5130A1E797D7300B73B75 /* UILabel+AMXFontScale.m in Sources */,
+				CD1E1FE21E81BA31000CD4B7 /* UITextView+AMXFontScale.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD513321E79908C00B73B75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD513391E79908C00B73B75 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CDD5134B1E79919100B73B75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDD512FB1E797C8800B73B75 /* AMXFontAutoScale */;
+			targetProxy = CDD5134A1E79919100B73B75 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CDD5133C1E79908C00B73B75 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDD5133D1E79908C00B73B75 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CDD513411E79908C00B73B75 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDD513421E79908C00B73B75 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CDD513021E797C8800B73B75 /* Debug */ = {
@@ -305,6 +453,37 @@
 			};
 			name = Release;
 		};
+		CDD513451E79908C00B73B75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EUYNN6V95H;
+				INFOPLIST_FILE = AMXFontAutoScaleDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexmx.AMXFontAutoScaleDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CDD513461E79908C00B73B75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EUYNN6V95H;
+				INFOPLIST_FILE = AMXFontAutoScaleDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexmx.AMXFontAutoScaleDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -322,6 +501,15 @@
 			buildConfigurations = (
 				CDD513051E797C8800B73B75 /* Debug */,
 				CDD513061E797C8800B73B75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDD513471E79908C00B73B75 /* Build configuration list for PBXNativeTarget "AMXFontAutoScaleDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD513451E79908C00B73B75 /* Debug */,
+				CDD513461E79908C00B73B75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
