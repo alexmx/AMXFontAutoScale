@@ -1,19 +1,19 @@
 //
-//  UILabel+AMXFontScale.m
+//  UITextView+AMXFontScale.m
 //  AMXFontAutoScale
 //
-//  Created by Alexandru Maimescu on 3/15/17.
+//  Created by Alexandru Maimescu on 3/21/17.
 //  Copyright © 2017 Alex Maimescu. All rights reserved.
 //
 
-#import "UILabel+AMXFontScale.h"
+#import "UITextView+AMXFontScale.h"
 #import "NSObject+AMXFontScale.h"
 #import "UIFont+AMXFontScale.h"
 
 static AMXScreenSize s_globalReferenceScreenSize = AMXScreenSizeCurrent;
 static BOOL s_globalAutoScaleEnabled = NO;
 
-@implementation UILabel (AMXFontScale)
+@implementation UITextView (AMXFontScale)
 
 #pragma mark - Class API (Global)
 

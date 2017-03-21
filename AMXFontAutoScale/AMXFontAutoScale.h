@@ -14,6 +14,4 @@ FOUNDATION_EXPORT double AMXFontAutoScaleVersionNumber;
 //! Project version string for AMXFontAutoScale.
 FOUNDATION_EXPORT const unsigned char AMXFontAutoScaleVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <AMXFontAutoScale/PublicHeader.h>
-
-
+#import <AMXFontAutoScale/UILabel+AMXFontScale.h>
