@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0FB4F01E8F1B88003EDA76 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FB4EF1E8F1B88003EDA76 /* MainViewController.swift */; };
 		CD1E1FE11E81BA31000CD4B7 /* UITextView+AMXFontScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CD1E1FDF1E81BA31000CD4B7 /* UITextView+AMXFontScale.h */; };
 		CD1E1FE21E81BA31000CD4B7 /* UITextView+AMXFontScale.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E1FE01E81BA31000CD4B7 /* UITextView+AMXFontScale.m */; };
 		CDD513011E797C8800B73B75 /* AMXFontAutoScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD512FF1E797C8800B73B75 /* AMXFontAutoScale.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD0FB4EF1E8F1B88003EDA76 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CD1E1FDF1E81BA31000CD4B7 /* UITextView+AMXFontScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+AMXFontScale.h"; sourceTree = "<group>"; };
 		CD1E1FE01E81BA31000CD4B7 /* UITextView+AMXFontScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+AMXFontScale.m"; sourceTree = "<group>"; };
 		CDD512FC1E797C8800B73B75 /* AMXFontAutoScale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AMXFontAutoScale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD513381E79908C00B73B75 /* AppDelegate.swift */,
+				CD0FB4EF1E8F1B88003EDA76 /* MainViewController.swift */,
 				CDD5133C1E79908C00B73B75 /* Main.storyboard */,
 				CDD5133F1E79908C00B73B75 /* Assets.xcassets */,
 				CDD513411E79908C00B73B75 /* LaunchScreen.storyboard */,
@@ -217,7 +220,7 @@
 			attributes = {
 				CLASSPREFIX = AMX;
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Alex Maimescu";
 				TargetAttributes = {
 					CDD512FB1E797C8800B73B75 = {
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDD513391E79908C00B73B75 /* AppDelegate.swift in Sources */,
+				CD0FB4F01E8F1B88003EDA76 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +414,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
