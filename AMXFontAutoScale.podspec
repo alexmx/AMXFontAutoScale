@@ -17,6 +17,8 @@ Pod::Spec.new do |s|
   s.platform              = :ios
   s.ios.deployment_target = '9.0'
 
+  s.pod_target_xcconfig   = { 'OTHER_LDFLAGS' => '-lObjC' }
+
   s.source                = { :git => "https://github.com/alexmx/AMXFontAutoScale.git", :tag => "v#{s.version}" }
   s.source_files          = "AMXFontAutoScale/**/*.{h,m,swift}"
 

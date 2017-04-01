@@ -14,4 +14,6 @@ FOUNDATION_EXPORT double AMXFontAutoScaleVersionNumber;
 //! Project version string for AMXFontAutoScale.
 FOUNDATION_EXPORT const unsigned char AMXFontAutoScaleVersionString[];
 
+#import <AMXFontAutoScale/UIFont+AMXFontScale.h>
 #import <AMXFontAutoScale/UILabel+AMXFontScale.h>
+#import <AMXFontAutoScale/UITextView+AMXFontScale.h>

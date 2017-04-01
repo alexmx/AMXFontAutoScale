@@ -44,5 +44,33 @@ class SomeViewController: UIViewController {
 
 **Note**: The instance scaling overrides the global one if set.
 
+## Installation
+
+#### Manual installation
+
+In order to include the **AMXFontAutoScale** library into your project, you need to build a dynamic framework from provided source code and include it into your project, or inlcude the entire **AMXFontAutoScale** library as sub-project by copying it to your project directory or include as Git submodule.
+
+#### Carthage
+
+If you are using **Carthage**, you can always use it to build the library within your workspace by adding the line below to your `Cartfile`.
+
+```
+github "alexmx/AMXFontAutoScale"
+```
+
+#### CocoaPods
+
+If you are using **CocoaPods**, you can as well use it to integrate the library by adding the following lines to your `Podfile`.
+
+```ruby
+platform :ios, '9.0'
+use_frameworks!
+
+target 'YourAppTarget' do
+    pod "AMXFontAutoScale", :git => 'git@github.com:alexmx/AMXFontAutoScale.git'
+end
+
+```
+
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
