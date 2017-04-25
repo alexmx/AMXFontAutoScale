@@ -48,7 +48,7 @@ class SomeViewController: UIViewController {
 
 #### Manual installation
 
-In order to include the **AMXFontAutoScale** library into your project, you need to build a dynamic framework from provided source code and include it into your project, or inlcude the entire **AMXFontAutoScale** library as sub-project by copying it to your project directory or include as Git submodule.
+In order to include the **AMXFontAutoScale** library into your project, you need to build a dynamic framework from provided source code and include it into your project, or inlcude the entire **AMXFontAutoScale** library as sub-project by copying it to your project directory or include as git submodule.
 
 #### Carthage
 
@@ -63,11 +63,11 @@ github "alexmx/AMXFontAutoScale"
 If you are using **CocoaPods**, you can as well use it to integrate the library by adding the following lines to your `Podfile`.
 
 ```ruby
-platform :ios, '9.0'
+platform :ios, '8.0'
 use_frameworks!
 
 target 'YourAppTarget' do
-    pod "AMXFontAutoScale", :git => 'git@github.com:alexmx/AMXFontAutoScale.git'
+    pod "AMXFontAutoScale"
 end
 
 ```
