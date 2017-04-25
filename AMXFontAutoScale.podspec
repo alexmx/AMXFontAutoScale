@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name          = "AMXFontAutoScale"
-  s.version       = "1.0.0"
+  s.version       = "1.0.1"
   s.summary       = "Scale the font for UILabel and UITextView proportionally across all the screen sizes."
 
   s.description   = <<-DESC
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.authors               = { "Alex Maimescu" => "maimescu.alex@gmail.com" }
 
   s.platform              = :ios
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '8.0'
 
   s.pod_target_xcconfig   = { 'OTHER_LDFLAGS' => '-lObjC' }
 

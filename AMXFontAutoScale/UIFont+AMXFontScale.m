@@ -16,7 +16,7 @@
     UIFont *finalFont = self;
     
     if (multiplier != 1) {
-        finalFont = [self fontWithSize:(self.pointSize * multiplier)];
+        finalFont = [UIFont fontWithDescriptor:self.fontDescriptor size:(self.pointSize * multiplier)];
     }
     
     return finalFont;
