@@ -12,9 +12,9 @@ class MainViewController: UIViewController {
     
     @IBOutlet var helloLabels: [UILabel]!
     @IBOutlet var sizeLabels: [UILabel]!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         if helloLabels.count == sizeLabels.count {
             for (index, helloLabel) in helloLabels.enumerated() {
