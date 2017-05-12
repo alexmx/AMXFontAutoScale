@@ -80,11 +80,11 @@ static BOOL s_globalAutoScaleEnabled = NO;
 
 + (void)load
 {
-    [self amx_swizzleInstanceSelector:@selector(willMoveToSuperview:)
-                         withSelector:@selector(swizzle_willMoveToSuperview:)];
+    [self amx_swizzleInstanceSelector:@selector(willMoveToWindow:)
+                         withSelector:@selector(swizzle_willMoveToWindow:)];
 }
 
-- (void)swizzle_willMoveToSuperview:(UIView *)newSuperview
+- (void)swizzle_willMoveToWindow:(UIWindow *)newWindow
 {
     AMXScreenSize referenceScreenSize = AMXScreenSizeCurrent;
     if (self.amx_autoScaleEndabled) {
@@ -97,7 +97,7 @@ static BOOL s_globalAutoScaleEnabled = NO;
         self.font = [self.font amx_scaleForReferenceScreenSize:referenceScreenSize];
     }
     
-    [self swizzle_willMoveToSuperview:newSuperview];
+    [self swizzle_willMoveToWindow:newWindow];
 }
 
 @end
