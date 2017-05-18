@@ -93,9 +93,7 @@ static BOOL s_globalAutoScaleEnabled = NO;
         referenceScreenSize = self.class.amx_referenceScreenSize;
     }
     
-    if ([self.font amx_fontPointSizeMultiplierForReferenceScreenSize:referenceScreenSize] != 1) {
-        self.font = [self.font amx_scaleForReferenceScreenSize:referenceScreenSize];
-    }
+    self.font = [self.font amx_scaleForReferenceScreenSize:referenceScreenSize];
     
     [self swizzle_willMoveToWindow:newWindow];
 }

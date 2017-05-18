@@ -11,7 +11,14 @@
 
 @interface UIFont (AMXFontScale)
 
+@property (nonatomic, assign, setter=set_amx_originalFontPointSize:) CGFloat amx_originalFontPointSize;
+
++ (instancetype)amx_fontWithDescriptor:(UIFontDescriptor *)descriptor
+                                  size:(CGFloat)pointSize
+                          originalSize:(CGFloat)originalPointSize;
+
 - (instancetype)amx_scaleForReferenceScreenSize:(AMXScreenSize)screenSize;
+
 - (CGFloat)amx_fontPointSizeMultiplierForReferenceScreenSize:(AMXScreenSize)screenSize;
 
 @end
