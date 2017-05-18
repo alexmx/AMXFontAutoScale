@@ -22,8 +22,8 @@ typedef NS_ENUM(NSInteger, AMXScreenSize) {
 
 @protocol AMXFontAutoScalable <NSObject>
 
-@property (nonatomic, assign, setter=set_amx_autoScaleEndabled:) BOOL amx_autoScaleEndabled;
-@property (nonatomic, class, setter=set_amx_autoScaleEndabled:) BOOL amx_autoScaleEndabled;
+@property (nonatomic, class, setter=set_amx_autoScaleEnabled:) BOOL amx_autoScaleEnabled;
+@property (nonatomic, assign, setter=set_amx_autoScaleEnabled:) BOOL amx_autoScaleEnabled;
 
 @property (nonatomic, assign, setter=set_amx_referenceScreenSize:) AMXScreenSize amx_referenceScreenSize;
 @property (nonatomic, class, setter=set_amx_referenceScreenSize:) AMXScreenSize amx_referenceScreenSize;
