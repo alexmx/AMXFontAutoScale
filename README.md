@@ -6,7 +6,7 @@ Scale the font for **UILabel** and **UITextView** proportionally across all the 
 
 ## Usage
 
-#### :earth_africa: Global scale:
+#### :earth_africa: Global scaling:
 ```swift
 import AMXFontAutoScale
 
@@ -33,16 +33,36 @@ import AMXFontAutoScale
 
 class SomeViewController: UIViewController {
     
+    var someLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let someLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         someLabel.amx_autoScaleFont(forReferenceScreenSize: .size4Inch)
     }
 }
 ```
 
 **Note**: The instance scaling overrides the global one if set.
+
+#### Disable scaling for some instances:
+
+```swift
+import AMXFontAutoScale
+
+class SomeViewController: UIViewController {
+    
+    var someLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Global font scaling is enabled
+        // Font scaling for someLabel is disabled
+        someLabel.amx_autoScaleEnabled = false
+    }
+}
+```
 
 ## Installation
 
