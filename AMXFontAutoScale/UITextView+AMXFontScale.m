@@ -10,6 +10,8 @@
 #import "NSObject+AMXFontScale.h"
 #import "UIFont+AMXFontScale.h"
 
+#import "FontUpdateBlockWrapper.h"
+
 static AMXScreenSize s_globalReferenceScreenSize = AMXScreenSizeCurrent;
 static BOOL s_globalAutoScaleEnabled = NO;
 
@@ -76,6 +78,21 @@ static BOOL s_globalAutoScaleEnabled = NO;
     return [self amx_getObjectForKey:@selector(amx_autoScaleEnabled)] != nil;
 }
 
+- (AMXFontUpdateHandler)amx_fontSizeUpdateHandler
+{
+    FontUpdateBlockWrapper *wrapper = [self amx_getObjectForKey:@selector(amx_fontSizeUpdateHandler)];
+    
+    return wrapper.fontUpdateHandler;
+}
+
+- (void)set_amx_fontSizeUpdateHandler:(AMXFontUpdateHandler)amx_fontSizeUpdateHandler
+{
+    FontUpdateBlockWrapper *wrapper = [FontUpdateBlockWrapper new];
+    wrapper.fontUpdateHandler = amx_fontSizeUpdateHandler;
+    
+    [self amx_storeObject:wrapper forKey:@selector(amx_fontSizeUpdateHandler)];
+}
+
 #pragma mark - Swizzles
 
 + (void)load
@@ -93,7 +110,8 @@ static BOOL s_globalAutoScaleEnabled = NO;
         referenceScreenSize = self.class.amx_referenceScreenSize;
     }
     
-    self.font = [self.font amx_scaleForReferenceScreenSize:referenceScreenSize];
+    self.font = [self.font amx_scaleForReferenceScreenSize:referenceScreenSize
+                                             updateHandler:self.amx_fontSizeUpdateHandler];
     
     [self swizzle_willMoveToWindow:newWindow];
 }

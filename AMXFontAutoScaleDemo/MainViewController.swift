@@ -12,7 +12,17 @@ class MainViewController: UIViewController {
     
     @IBOutlet var helloLabels: [UILabel]!
     @IBOutlet var sizeLabels: [UILabel]!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        for helloLabel in helloLabels {
+            helloLabel.amx_fontSizeUpdateHandler = { originalSize, preferredSize, multiplier in
+                print("For original size: \(originalSize) set preferred size: \(preferredSize), multiplier: \(multiplier)")
+            }
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

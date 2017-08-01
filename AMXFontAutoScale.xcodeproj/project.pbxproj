@@ -10,6 +10,8 @@
 		CD0FB4F01E8F1B88003EDA76 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FB4EF1E8F1B88003EDA76 /* MainViewController.swift */; };
 		CD1E1FE11E81BA31000CD4B7 /* UITextView+AMXFontScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CD1E1FDF1E81BA31000CD4B7 /* UITextView+AMXFontScale.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD1E1FE21E81BA31000CD4B7 /* UITextView+AMXFontScale.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E1FE01E81BA31000CD4B7 /* UITextView+AMXFontScale.m */; };
+		CDA2F79F1F30CA420081A1E1 /* FontUpdateBlockWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = CDA2F79D1F30CA420081A1E1 /* FontUpdateBlockWrapper.h */; };
+		CDA2F7A01F30CA420081A1E1 /* FontUpdateBlockWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA2F79E1F30CA420081A1E1 /* FontUpdateBlockWrapper.m */; };
 		CDD513011E797C8800B73B75 /* AMXFontAutoScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD512FF1E797C8800B73B75 /* AMXFontAutoScale.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDD513091E797D7300B73B75 /* UILabel+AMXFontScale.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD513071E797D7300B73B75 /* UILabel+AMXFontScale.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDD5130A1E797D7300B73B75 /* UILabel+AMXFontScale.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD513081E797D7300B73B75 /* UILabel+AMXFontScale.m */; };
@@ -54,6 +56,8 @@
 		CD0FB4EF1E8F1B88003EDA76 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CD1E1FDF1E81BA31000CD4B7 /* UITextView+AMXFontScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+AMXFontScale.h"; sourceTree = "<group>"; };
 		CD1E1FE01E81BA31000CD4B7 /* UITextView+AMXFontScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+AMXFontScale.m"; sourceTree = "<group>"; };
+		CDA2F79D1F30CA420081A1E1 /* FontUpdateBlockWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontUpdateBlockWrapper.h; sourceTree = "<group>"; };
+		CDA2F79E1F30CA420081A1E1 /* FontUpdateBlockWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontUpdateBlockWrapper.m; sourceTree = "<group>"; };
 		CDD512FC1E797C8800B73B75 /* AMXFontAutoScale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AMXFontAutoScale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD512FF1E797C8800B73B75 /* AMXFontAutoScale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMXFontAutoScale.h; sourceTree = "<group>"; };
 		CDD513001E797C8800B73B75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CDA2F7A11F30CBC70081A1E1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CDA2F79D1F30CA420081A1E1 /* FontUpdateBlockWrapper.h */,
+				CDA2F79E1F30CA420081A1E1 /* FontUpdateBlockWrapper.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		CDD512F21E797C8800B73B75 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,7 @@
 		CDD512FE1E797C8800B73B75 /* AMXFontAutoScale */ = {
 			isa = PBXGroup;
 			children = (
+				CDA2F7A11F30CBC70081A1E1 /* Classes */,
 				CDD5130C1E797E0400B73B75 /* Protocols */,
 				CDD5130B1E797D8900B73B75 /* Categories */,
 				CDD512FF1E797C8800B73B75 /* AMXFontAutoScale.h */,
@@ -166,6 +180,7 @@
 				CD1E1FE11E81BA31000CD4B7 /* UITextView+AMXFontScale.h in Headers */,
 				CDD513091E797D7300B73B75 /* UILabel+AMXFontScale.h in Headers */,
 				CDD513151E79885800B73B75 /* NSObject+AMXFontScale.h in Headers */,
+				CDA2F79F1F30CA420081A1E1 /* FontUpdateBlockWrapper.h in Headers */,
 				CDD5134F1E799A9F00B73B75 /* UIFont+AMXFontScale.h in Headers */,
 				CDD513551E79AFC600B73B75 /* AMXFontAutoScalable.h in Headers */,
 				CDD513011E797C8800B73B75 /* AMXFontAutoScale.h in Headers */,
@@ -281,6 +296,7 @@
 			files = (
 				CDD513501E799A9F00B73B75 /* UIFont+AMXFontScale.m in Sources */,
 				CDD513161E79885800B73B75 /* NSObject+AMXFontScale.m in Sources */,
+				CDA2F7A01F30CA420081A1E1 /* FontUpdateBlockWrapper.m in Sources */,
 				CDD5130A1E797D7300B73B75 /* UILabel+AMXFontScale.m in Sources */,
 				CD1E1FE21E81BA31000CD4B7 /* UITextView+AMXFontScale.m in Sources */,
 			);

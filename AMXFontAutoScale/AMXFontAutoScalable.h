@@ -9,6 +9,10 @@
 #ifndef AMXFontAutoScalable_h
 #define AMXFontAutoScalable_h
 
+#import <CoreGraphics/CoreGraphics.h>
+
+typedef void (^AMXFontUpdateHandler)(CGFloat originalSize, CGFloat preferredSize, CGFloat multiplier);
+
 typedef NS_ENUM(NSInteger, AMXScreenSize) {
     AMXScreenSizeCurrent,
     AMXScreenSize3p5Inch,
@@ -27,6 +31,8 @@ typedef NS_ENUM(NSInteger, AMXScreenSize) {
 
 @property (nonatomic, assign, setter=set_amx_referenceScreenSize:) AMXScreenSize amx_referenceScreenSize;
 @property (nonatomic, class, setter=set_amx_referenceScreenSize:) AMXScreenSize amx_referenceScreenSize;
+
+@property (nonatomic, assign, setter=set_amx_fontSizeUpdateHandler:) AMXFontUpdateHandler amx_fontSizeUpdateHandler;
 
 + (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize;
 - (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize;

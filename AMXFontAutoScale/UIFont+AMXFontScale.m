@@ -22,14 +22,20 @@
 }
 
 - (instancetype)amx_scaleForReferenceScreenSize:(AMXScreenSize)screenSize
+                                  updateHandler:(AMXFontUpdateHandler)updateHandler
 {
     CGFloat multiplier = [self amx_fontPointSizeMultiplierForReferenceScreenSize:screenSize];
     UIFont *finalFont = self;
     
     if (multiplier != 1) {
+        CGFloat finalSize = self.amx_originalFontPointSize * multiplier;
         finalFont = [UIFont amx_fontWithDescriptor:self.fontDescriptor
-                                              size:(self.amx_originalFontPointSize * multiplier)
+                                              size:finalSize
                                       originalSize:self.amx_originalFontPointSize];
+        
+        if (updateHandler) {
+            updateHandler(self.amx_originalFontPointSize, finalSize, multiplier);
+        }
     }
     
     return finalFont;

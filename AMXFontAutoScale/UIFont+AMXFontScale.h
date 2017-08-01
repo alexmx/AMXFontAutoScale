@@ -17,7 +17,8 @@
                                   size:(CGFloat)pointSize
                           originalSize:(CGFloat)originalPointSize;
 
-- (instancetype)amx_scaleForReferenceScreenSize:(AMXScreenSize)screenSize;
+- (instancetype)amx_scaleForReferenceScreenSize:(AMXScreenSize)screenSize
+                                  updateHandler:(AMXFontUpdateHandler)updateHandler;
 
 - (CGFloat)amx_fontPointSizeMultiplierForReferenceScreenSize:(AMXScreenSize)screenSize;
 
