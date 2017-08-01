@@ -6,7 +6,7 @@ Scale the font for **UILabel** and **UITextView** proportionally across all the 
 
 ## Usage
 
-#### :earth_africa: Global scaling:
+#### :earth_africa: Global scaling
 ```swift
 import AMXFontAutoScale
 
@@ -27,7 +27,7 @@ iPhone 4 inch | iPhone 4.7 inch | iPhone 5.5 inch
 ------------ | ------------- | -------------
 ![Contact List](/assets/iphone-4-inch.png) | ![Contact Details](/assets/iphone-4-7-inch.png) | ![Edit Contact](/assets/iphone-5-5-inch.png)
 
-#### Instance scaling:
+#### Instance scaling
 ```swift
 import AMXFontAutoScale
 
@@ -45,7 +45,7 @@ class SomeViewController: UIViewController {
 
 **Note**: The instance scaling overrides the global one if set.
 
-#### Disable scaling for some instances:
+#### Disable scaling for some instances
 
 ```swift
 import AMXFontAutoScale
@@ -60,6 +60,27 @@ class SomeViewController: UIViewController {
         // Global font scaling is enabled
         // Font scaling for someLabel is disabled
         someLabel.amx_autoScaleEnabled = false
+    }
+}
+```
+
+#### Handle manually font point size updates
+
+Get a closure called every time the font should be updated.
+
+```swift
+import AMXFontAutoScale
+
+class SomeViewController: UIViewController {
+        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        for someLabel in someLabels {
+            someLabel.amx_fontSizeUpdateHandler = { originalSize, preferredSize, multiplier in
+                print("For original size: \(originalSize) set preferred size: \(preferredSize), multiplier: \(multiplier)")
+            }
+        }
     }
 }
 ```
