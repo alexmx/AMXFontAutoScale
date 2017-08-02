@@ -76,10 +76,8 @@ class SomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for someLabel in someLabels {
-            someLabel.amx_fontSizeUpdateHandler = { originalSize, preferredSize, multiplier in
-                print("For original size: \(originalSize) set preferred size: \(preferredSize), multiplier: \(multiplier)")
-            }
+        someLabel.amx_fontSizeUpdateHandler = { originalSize, preferredSize, multiplier in
+	          print("For original size: \(originalSize) set preferred size: \(preferredSize), multiplier: \(multiplier)")
         }
     }
 }
