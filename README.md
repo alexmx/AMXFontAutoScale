@@ -77,7 +77,7 @@ class SomeViewController: UIViewController {
         super.viewDidLoad()
         
         someLabel.amx_fontSizeUpdateHandler = { originalSize, preferredSize, multiplier in
-	          print("For original size: \(originalSize) set preferred size: \(preferredSize), multiplier: \(multiplier)")
+	    print("For original size: \(originalSize) set preferred size: \(preferredSize), multiplier: \(multiplier)")
         }
     }
 }
