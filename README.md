@@ -6,6 +6,15 @@ Scale the font for **UILabel** and **UITextView** proportionally across all the 
 
 ## Usage
 
+1) Set the **UILabel** or **UITextView** font using the `font` property or Interface Builder.
+2) Decide if you want to apply the automatic scaling globally or for particular instances. You can mix both approaches.
+3) Set the reference screen size you want to be used for scaling. Your original font size will be used for reference screen size and scaled up or down for other screen sizes.
+3) Enjoy the magic!
+
+iPhone 4 inch | iPhone 4.7 inch | iPhone 5.5 inch
+------------ | ------------- | -------------
+![Contact List](/assets/iphone-4-inch.png) | ![Contact Details](/assets/iphone-4-7-inch.png) | ![Edit Contact](/assets/iphone-5-5-inch.png)
+
 #### :earth_africa: Global scaling
 ```swift
 import AMXFontAutoScale
@@ -21,11 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 }
 ```
-
-
-iPhone 4 inch | iPhone 4.7 inch | iPhone 5.5 inch
------------- | ------------- | -------------
-![Contact List](/assets/iphone-4-inch.png) | ![Contact Details](/assets/iphone-4-7-inch.png) | ![Edit Contact](/assets/iphone-5-5-inch.png)
 
 #### Instance scaling
 ```swift
@@ -64,7 +68,7 @@ class SomeViewController: UIViewController {
 }
 ```
 
-#### Handle manually font point size updates
+#### Handle manually font size updates
 
 Get a closure called every time the font should be updated.
 
