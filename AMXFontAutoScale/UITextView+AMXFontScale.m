@@ -103,15 +103,20 @@ static BOOL s_globalAutoScaleEnabled = NO;
 
 - (void)swizzle_willMoveToWindow:(UIWindow *)newWindow
 {
-    AMXScreenSize referenceScreenSize = AMXScreenSizeCurrent;
-    if (self.amx_autoScaleEnabled) {
-        referenceScreenSize = self.amx_referenceScreenSize;
-    } else if (self.class.amx_autoScaleEnabled && ![self wasInstanceAutoScaleSet]) {
-        referenceScreenSize = self.class.amx_referenceScreenSize;
+    if (newWindow) {
+        AMXScreenSize referenceScreenSize = AMXScreenSizeCurrent;
+        
+        if (self.amx_autoScaleEnabled) {
+            referenceScreenSize = self.amx_referenceScreenSize;
+        } else if (self.class.amx_autoScaleEnabled && ![self wasInstanceAutoScaleSet]) {
+            referenceScreenSize = self.class.amx_referenceScreenSize;
+        }
+        
+        if (referenceScreenSize != AMXScreenSizeCurrent) {
+            self.font = [self.font amx_scaleForReferenceScreenSize:referenceScreenSize
+                                                     updateHandler:self.amx_fontSizeUpdateHandler];
+        }
     }
-    
-    self.font = [self.font amx_scaleForReferenceScreenSize:referenceScreenSize
-                                             updateHandler:self.amx_fontSizeUpdateHandler];
     
     [self swizzle_willMoveToWindow:newWindow];
 }

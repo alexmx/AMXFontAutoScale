@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name          = "AMXFontAutoScale"
-  s.version       = "1.1.0"
+  s.version       = "1.1.1"
   s.summary       = "Scale the font for UILabel and UITextView proportionally across all the screen sizes."
 
   s.description   = <<-DESC
