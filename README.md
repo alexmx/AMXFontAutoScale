@@ -62,6 +62,8 @@ class SomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Global font scaling is enabled
+	UILabel.amx_autoScaleFont(forReferenceScreenSize: .size4Inch)
+	
         // Font scaling for someLabel is disabled
         someLabel.amx_autoScaleEnabled = false
     }
@@ -80,8 +82,9 @@ class SomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        someLabel.amx_fontSizeUpdateHandler = { originalSize, preferredSize, multiplier in
-	    print("For original size: \(originalSize) set preferred size: \(preferredSize), multiplier: \(multiplier)")
+        someLabel.amx_fontSizeUpdateHandler = { [weak someLabel] originalSize, preferredSize, multiplier in
+	    let newFont = ... // Compute the new font
+	    someLabel.font = newFont // Set the new computed font
         }
     }
 }
