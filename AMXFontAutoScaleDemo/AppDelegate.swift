@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         UINavigationBar.appearance().barTintColor = UIColor(red: 1, green: 45/255.0, blue: 85/255.0, alpha: 1)
         
         UILabel.amx_autoScaleFont(forReferenceScreenSize: .size3p5Inch)

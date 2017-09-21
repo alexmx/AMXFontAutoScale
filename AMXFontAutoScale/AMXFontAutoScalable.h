@@ -34,8 +34,8 @@ typedef NS_ENUM(NSInteger, AMXScreenSize) {
 
 @property (nonatomic, assign, setter=set_amx_fontSizeUpdateHandler:) AMXFontUpdateHandler amx_fontSizeUpdateHandler;
 
-+ (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize;
 - (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize;
++ (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize;
 
 @end
 
