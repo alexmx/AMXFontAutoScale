@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UILabel.amx_autoScaleFont(forReferenceScreenSize: .size3p5Inch)
         
+        let labelSample = UILabel(frame: .zero)
+        labelSample.amx_autoScaleFont(forReferenceScreenSize: .size3p5Inch)
+        
         return true
     }
 

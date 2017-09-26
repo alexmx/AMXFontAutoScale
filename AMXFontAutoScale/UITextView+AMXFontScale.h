@@ -11,4 +11,7 @@
 
 @interface UITextView (AMXFontScale) <AMXFontAutoScalable>
 
+- (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize;
++ (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize;
+
 @end
