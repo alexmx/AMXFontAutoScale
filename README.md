@@ -2,11 +2,11 @@
 [![Twitter: @amaimescu](https://img.shields.io/badge/contact-%40amaimescu-blue.svg)](https://twitter.com/amaimescu)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/alexmx/ios-ui-automation-overview/blob/master/LICENSE)
 
-Scale the font for **UILabel** and **UITextView** proportionally across all the screen sizes. Just define the screen size to be used as reference for scaling and the library will update all the instances of the **UILabel** and **UITextView** automatically.
+Scale the font for **`UILabel`** and **`UITextView`** proportionally across all the screen sizes. Just define the screen size to be used as reference for scaling and the library will update all the instances of the **`UILabel`** and **`UITextView`** automatically.
 
 ## Usage
 
-1) Set the **UILabel** or **UITextView** font using the `font` property or Interface Builder.
+1) Set the **`UILabel`** or **`UITextView`** font using the `font` property or Interface Builder.
 2) Decide if you want to apply the automatic scaling globally or for particular instances. You can mix both approaches.
 3) Set the reference screen size you want to be used for scaling. Your original font size will be used for reference screen size and scaled up or down for other screen sizes.
 3) Enjoy the magic!
@@ -14,22 +14,6 @@ Scale the font for **UILabel** and **UITextView** proportionally across all the 
 iPhone 4 inch | iPhone 4.7 inch | iPhone 5.5 inch
 ------------ | ------------- | -------------
 ![Contact List](/assets/iphone-4-inch.png) | ![Contact Details](/assets/iphone-4-7-inch.png) | ![Edit Contact](/assets/iphone-5-5-inch.png)
-
-#### :earth_africa: Global scaling
-```swift
-import AMXFontAutoScale
-
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        // Scale all the label fonts using the 4 inch screen size as a reference
-        UILabel.amx_autoScaleFont(forReferenceScreenSize: .size4Inch)
-        
-        return true
-  }
-}
-```
 
 #### Instance scaling
 ```swift
@@ -47,9 +31,26 @@ class SomeViewController: UIViewController {
 }
 ```
 
+#### :earth_africa: Global scaling
+```swift
+import AMXFontAutoScale
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Scale all the label fonts using the 4 inch screen size as a reference
+        UILabel.amx_autoScaleFont(forReferenceScreenSize: .size4Inch)
+        
+        return true
+  }
+}
+```
+⚠️ - Be careful when using this one as it litteraly scales all the instances of **UILabel** and **UITextView** from your app, even the unobvious labels or text views in the system cotrols and components.
+
 **Note**: The instance scaling overrides the global one if set.
 
-#### Disable scaling for some instances
+#### Disable scaling for some instances when global scaling is enabled
 
 ```swift
 import AMXFontAutoScale
