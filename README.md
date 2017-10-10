@@ -30,6 +30,7 @@ class SomeViewController: UIViewController {
     }
 }
 ```
+**Note**: The instance scaling overrides the global one if set.
 
 #### :earth_africa: Global scaling
 ```swift
@@ -46,9 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 }
 ```
-⚠️ - Be careful when using this one as it litteraly scales all the instances of **UILabel** and **UITextView** from your app, even the unobvious labels or text views in the system cotrols and components.
-
-**Note**: The instance scaling overrides the global one if set.
+⚠️ - Be careful when using this one as it litteraly scales all the instances of **`UILabel`** and **`UITextView`** from your app, even the unobvious labels or text views in the system cotrols and components.
 
 #### Disable scaling for some instances when global scaling is enabled
 
