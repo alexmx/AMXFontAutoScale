@@ -33,6 +33,9 @@ class SomeViewController: UIViewController {
 **Note**: The instance scaling overrides the global one if set.
 
 #### :earth_africa: Global scaling
+
+⚠️ - Be careful when using this one as it litteraly scales all the instances of **`UILabel`** and **`UITextView`** from your app, even the unobvious labels or text views in the system cotrols and components.
+
 ```swift
 import AMXFontAutoScale
 
@@ -47,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 }
 ```
-⚠️ - Be careful when using this one as it litteraly scales all the instances of **`UILabel`** and **`UITextView`** from your app, even the unobvious labels or text views in the system cotrols and components.
 
 #### Disable scaling for some instances when global scaling is enabled
 
@@ -82,7 +84,7 @@ class SomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        someLabel.amx_fontSizeUpdateHandler = { [weak someLabel] originalSize, preferredSize, multiplier in
+        someLabel.amx_fontSizeUpdateHandler = { originalSize, preferredSize, multiplier in
 	    let newFont = ... // Compute the new font
 	    someLabel.font = newFont // Set the new computed font
         }
