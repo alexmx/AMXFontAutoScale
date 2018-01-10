@@ -11,31 +11,14 @@
 
 @implementation UIFont (AMXFontScale)
 
-+ (instancetype)amx_fontWithDescriptor:(UIFontDescriptor *)descriptor
-                                  size:(CGFloat)pointSize
-                          originalSize:(CGFloat)originalPointSize
-{
-    UIFont *font = [UIFont fontWithDescriptor:descriptor size:pointSize];
-    font.amx_originalFontPointSize = originalPointSize;
-    
-    return font;
-}
-
-- (instancetype)amx_scaleForReferenceScreenSize:(AMXScreenSize)screenSize
-                                  updateHandler:(AMXFontUpdateHandler)updateHandler
+- (instancetype)amx_scaledFontForReferenceScreenSize:(AMXScreenSize)screenSize
 {
     CGFloat multiplier = [self amx_fontPointSizeMultiplierForReferenceScreenSize:screenSize];
     UIFont *finalFont = self;
     
     if (multiplier != 1) {
-        CGFloat finalSize = self.amx_originalFontPointSize * multiplier;
-        finalFont = [UIFont amx_fontWithDescriptor:self.fontDescriptor
-                                              size:finalSize
-                                      originalSize:self.amx_originalFontPointSize];
-        
-        if (updateHandler) {
-            updateHandler(self.amx_originalFontPointSize, finalSize, multiplier);
-        }
+        CGFloat finalSize = self.pointSize * multiplier;
+        finalFont = [UIFont fontWithDescriptor:self.fontDescriptor size:finalSize];
     }
     
     return finalFont;
@@ -67,22 +50,6 @@
     }
     
     return [self amx_currentScreenWidth];
-}
-
-- (void)set_amx_originalFontPointSize:(CGFloat)size
-{
-    [self amx_storeObject:@(size) forKey:@selector(amx_originalFontPointSize)];
-}
-
-- (CGFloat)amx_originalFontPointSize
-{
-    CGFloat originalFontSize = [[self amx_getObjectForKey:@selector(amx_originalFontPointSize)] floatValue];
-    
-    if (!originalFontSize) {
-        originalFontSize = self.pointSize;
-    }
-    
-    return originalFontSize;
 }
 
 - (CGFloat)amx_currentScreenWidth

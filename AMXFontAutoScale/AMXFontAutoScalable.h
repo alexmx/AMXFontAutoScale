@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, AMXScreenSize) {
 @property (nonatomic, assign, setter=set_amx_referenceScreenSize:) AMXScreenSize amx_referenceScreenSize;
 @property (nonatomic, class, setter=set_amx_referenceScreenSize:) AMXScreenSize amx_referenceScreenSize;
 
+@property (nonatomic, assign, setter=set_amx_originalFontPointSize:) CGFloat amx_originalFontPointSize;
 @property (nonatomic, assign, setter=set_amx_fontSizeUpdateHandler:) AMXFontUpdateHandler amx_fontSizeUpdateHandler;
 
 @end

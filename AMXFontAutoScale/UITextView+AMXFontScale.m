@@ -30,9 +30,9 @@ static BOOL s_globalAutoScaleEnabled = NO;
     return s_globalAutoScaleEnabled;
 }
 
-+ (void)set_amx_autoScaleEnabled:(BOOL)amx_autoScaleEnabled
++ (void)set_amx_autoScaleEnabled:(BOOL)autoScaleEnabled
 {
-    s_globalAutoScaleEnabled = amx_autoScaleEnabled;
+    s_globalAutoScaleEnabled = autoScaleEnabled;
 }
 
 + (AMXScreenSize)amx_referenceScreenSize
@@ -40,9 +40,9 @@ static BOOL s_globalAutoScaleEnabled = NO;
     return s_globalReferenceScreenSize;
 }
 
-+ (void)set_amx_referenceScreenSize:(AMXScreenSize)amx_referenceScreenSize
++ (void)set_amx_referenceScreenSize:(AMXScreenSize)referenceScreenSize
 {
-    s_globalReferenceScreenSize = amx_referenceScreenSize;
+    s_globalReferenceScreenSize = referenceScreenSize;
 }
 
 #pragma mark - Instance API
@@ -58,9 +58,9 @@ static BOOL s_globalAutoScaleEnabled = NO;
     return [[self amx_getObjectForKey:@selector(amx_autoScaleEnabled)] boolValue];
 }
 
-- (void)set_amx_autoScaleEnabled:(BOOL)amx_autoScaleEnabled
+- (void)set_amx_autoScaleEnabled:(BOOL)autoScaleEnabled
 {
-    [self amx_storeObject:@(amx_autoScaleEnabled) forKey:@selector(amx_autoScaleEnabled)];
+    [self amx_storeObject:@(autoScaleEnabled) forKey:@selector(amx_autoScaleEnabled)];
 }
 
 - (AMXScreenSize)amx_referenceScreenSize
@@ -68,9 +68,9 @@ static BOOL s_globalAutoScaleEnabled = NO;
     return [[self amx_getObjectForKey:@selector(amx_referenceScreenSize)] integerValue];
 }
 
-- (void)set_amx_referenceScreenSize:(AMXScreenSize)amx_referenceScreenSize
+- (void)set_amx_referenceScreenSize:(AMXScreenSize)referenceScreenSize
 {
-    [self amx_storeObject:@(amx_referenceScreenSize) forKey:@selector(amx_referenceScreenSize)];
+    [self amx_storeObject:@(referenceScreenSize) forKey:@selector(amx_referenceScreenSize)];
 }
 
 - (BOOL)wasInstanceAutoScaleSet
@@ -85,12 +85,24 @@ static BOOL s_globalAutoScaleEnabled = NO;
     return wrapper.fontUpdateHandler;
 }
 
-- (void)set_amx_fontSizeUpdateHandler:(AMXFontUpdateHandler)amx_fontSizeUpdateHandler
+- (void)set_amx_fontSizeUpdateHandler:(AMXFontUpdateHandler)fontSizeUpdateHandler
 {
     FontUpdateBlockWrapper *wrapper = [FontUpdateBlockWrapper new];
-    wrapper.fontUpdateHandler = amx_fontSizeUpdateHandler;
+    wrapper.fontUpdateHandler = fontSizeUpdateHandler;
     
     [self amx_storeObject:wrapper forKey:@selector(amx_fontSizeUpdateHandler)];
+}
+
+- (CGFloat)amx_originalFontPointSize
+{
+    NSNumber *storedFontPointSize = [self amx_getObjectForKey:@selector(amx_originalFontPointSize)];
+    
+    return (storedFontPointSize) ? [storedFontPointSize floatValue] : self.font.pointSize;
+}
+
+- (void)set_amx_originalFontPointSize:(CGFloat)originalFontPointSize
+{
+    [self amx_storeObject:@(originalFontPointSize) forKey:@selector(amx_originalFontPointSize)];
 }
 
 #pragma mark - Swizzles
@@ -103,18 +115,28 @@ static BOOL s_globalAutoScaleEnabled = NO;
 
 - (void)swizzle_willMoveToWindow:(UIWindow *)newWindow
 {
-    if (newWindow) {
+    BOOL scalingIsNeeded = roundf(self.amx_originalFontPointSize) == roundf(self.font.pointSize);
+    
+    if (newWindow && scalingIsNeeded) {
         AMXScreenSize referenceScreenSize = AMXScreenSizeCurrent;
         
+        // Get the reference screen size
         if (self.amx_autoScaleEnabled) {
             referenceScreenSize = self.amx_referenceScreenSize;
         } else if (self.class.amx_autoScaleEnabled && ![self wasInstanceAutoScaleSet]) {
             referenceScreenSize = self.class.amx_referenceScreenSize;
         }
         
+        // Apply scaling if needed
         if (referenceScreenSize != AMXScreenSizeCurrent) {
-            self.font = [self.font amx_scaleForReferenceScreenSize:referenceScreenSize
-                                                     updateHandler:self.amx_fontSizeUpdateHandler];
+            self.amx_originalFontPointSize = self.font.pointSize;
+            CGFloat multiplier = [self.font amx_fontPointSizeMultiplierForReferenceScreenSize:referenceScreenSize];
+            self.font = [self.font amx_scaledFontForReferenceScreenSize:referenceScreenSize];
+            
+            // Call update handler if set
+            if (self.amx_fontSizeUpdateHandler) {
+                self.amx_fontSizeUpdateHandler(self.amx_originalFontPointSize, self.font.pointSize, multiplier);
+            }
         }
     }
     
