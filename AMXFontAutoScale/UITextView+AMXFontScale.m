@@ -45,6 +45,18 @@ static BOOL s_globalAutoScaleEnabled = NO;
     s_globalReferenceScreenSize = referenceScreenSize;
 }
 
+#pragma mark - IBInspectable accessors
+
+- (BOOL)autoScale
+{
+    return self.amx_autoScaleEnabled;
+}
+
+- (void)setAutoScale:(BOOL)autoScale
+{
+    self.amx_autoScaleEnabled = autoScale;
+}
+
 #pragma mark - Instance API
 
 - (void)amx_autoScaleFontForReferenceScreenSize:(AMXScreenSize)screenSize
@@ -71,11 +83,6 @@ static BOOL s_globalAutoScaleEnabled = NO;
 - (void)set_amx_referenceScreenSize:(AMXScreenSize)referenceScreenSize
 {
     [self amx_storeObject:@(referenceScreenSize) forKey:@selector(amx_referenceScreenSize)];
-}
-
-- (BOOL)wasInstanceAutoScaleSet
-{
-    return [self amx_getObjectForKey:@selector(amx_autoScaleEnabled)] != nil;
 }
 
 - (AMXFontUpdateHandler)amx_fontSizeUpdateHandler
@@ -105,6 +112,19 @@ static BOOL s_globalAutoScaleEnabled = NO;
     [self amx_storeObject:@(originalFontPointSize) forKey:@selector(amx_originalFontPointSize)];
 }
 
+#pragma mark - Utils
+
+- (BOOL)wasInstanceAutoScaleReferenceDefined
+{
+    return [self amx_getObjectForKey:@selector(amx_referenceScreenSize)] != nil;
+}
+
+- (BOOL)wasInstanceAutoScaleExplicitlyDisabled
+{
+    return ([self amx_getObjectForKey:@selector(amx_autoScaleEnabled)] != nil) &&
+    (self.amx_autoScaleEnabled == NO);
+}
+
 #pragma mark - Swizzles
 
 + (void)load
@@ -122,8 +142,10 @@ static BOOL s_globalAutoScaleEnabled = NO;
         
         // Get the reference screen size
         if (self.amx_autoScaleEnabled) {
-            referenceScreenSize = self.amx_referenceScreenSize;
-        } else if (self.class.amx_autoScaleEnabled && ![self wasInstanceAutoScaleSet]) {
+            referenceScreenSize = [self wasInstanceAutoScaleReferenceDefined]
+            ? self.amx_referenceScreenSize
+            : self.class.amx_referenceScreenSize;
+        } else if (self.class.amx_autoScaleEnabled && [self wasInstanceAutoScaleExplicitlyDisabled] == NO) {
             referenceScreenSize = self.class.amx_referenceScreenSize;
         }
         
