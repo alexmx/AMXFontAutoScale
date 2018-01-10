@@ -6,22 +6,27 @@ Scale the font for **`UILabel`** and **`UITextView`** proportionally across all 
 
 ## Usage
 
-1) Set the **`UILabel`** or **`UITextView`** font using the `font` property or Interface Builder.
-2) Decide if you want to apply the automatic scaling globally or for particular instances. You can mix both approaches.
-3) Set the reference screen size you want to be used for scaling. Your original font size will be used for reference screen size and scaled up or down for other screen sizes.
+1) Set the **`UILabel`** or **`UITextView`** font using `Interface Builder` or the `font` property directly.
+2) Define for which **labels** and **text views** the font should be auto scaled. Check the examples below for more details.
+3) Define the reference screen size to be used for scaling. Your original font size will match exactly the chosen reference screen size and will be scaled up or down for other screen sizes.
 3) Enjoy the magic!
 
 iPhone 4 inch | iPhone 4.7 inch | iPhone 5.5 inch
 ------------ | ------------- | -------------
 ![Contact List](/assets/iphone-4-inch.png) | ![Contact Details](/assets/iphone-4-7-inch.png) | ![Edit Contact](/assets/iphone-5-5-inch.png)
 
-#### Instance scaling
+## Usage examples
+
+#### Define auto scaling for one instance
+
+Define the reference screen size for a specific label. Different instances can have different reference screen sizes defined:
+
 ```swift
 import AMXFontAutoScale
 
 class SomeViewController: UIViewController {
     
-    var someLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    @IBOutlet var someLabel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +35,41 @@ class SomeViewController: UIViewController {
     }
 }
 ```
-**Note**: The instance scaling overrides the global one if set.
 
-#### :earth_africa: Global scaling
+#### Define auto scaling for multiple instances
 
-⚠️ - Be careful when using this one as it litteraly scales all the instances of **`UILabel`** and **`UITextView`** from your app, even the unobvious labels or text views in the system cotrols and components.
+In practice most of the instances will share the same reference screen size, so it is inconvenient to set it per instance.
+You can define the global reference screen size and just enable the auto scaling for particular instances:
+
+```swift
+import AMXFontAutoScale
+
+class SomeViewController: UIViewController {
+    
+    @IBOutlet var someLabel1
+    @IBOutlet var someLabel2
+    @IBOutlet var someLabel3
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+	UILabel.amx_referenceScreenSize = .size4Inch
+	
+        someLabel1.amx_autoScaleEnabled = true
+	someLabel2.amx_autoScaleEnabled = true
+	someLabel3.amx_autoScaleEnabled = true
+    }
+}
+```
+
+Or using the Interface Builder:
+
+![Interface Builder](/assets/interface-builder.png)
+
+
+#### :earth_africa: Define global auto scaling
+
+⚠️ - Be careful when using this one as it literally scales all the instances of **`UILabel`** and **`UITextView`** from your app, even the unobvious labels or text views in the system controls and components.
 
 ```swift
 import AMXFontAutoScale
@@ -50,6 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 }
 ```
+Note: The instance scaling overrides the global one if set.
 
 #### Disable scaling for some instances when global scaling is enabled
 
@@ -58,7 +94,7 @@ import AMXFontAutoScale
 
 class SomeViewController: UIViewController {
     
-    var someLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    @IBOutlet var someLabel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +103,7 @@ class SomeViewController: UIViewController {
 	UILabel.amx_autoScaleFont(forReferenceScreenSize: .size4Inch)
 	
         // Font scaling for someLabel is disabled
+	// Alternatively you can disable it using the Interface Builder 
         someLabel.amx_autoScaleEnabled = false
     }
 }
@@ -74,7 +111,7 @@ class SomeViewController: UIViewController {
 
 #### Handle manually font size updates
 
-Get a closure called every time the font should be updated.
+Get a closure called every time the font should be updated. Might be convenient when defining the fonts for the attributed strings:
 
 ```swift
 import AMXFontAutoScale
@@ -85,8 +122,7 @@ class SomeViewController: UIViewController {
         super.viewDidLoad()
         
         someLabel.amx_fontSizeUpdateHandler = { originalSize, preferredSize, multiplier in
-	    let newFont = ... // Compute the new font
-	    someLabel.font = newFont // Set the new computed font
+	    // E.g. Compute the new fonts for the attributed text
         }
     }
 }
@@ -94,9 +130,18 @@ class SomeViewController: UIViewController {
 
 ## Installation
 
-#### Manual installation
+#### CocoaPods
 
-In order to include the **AMXFontAutoScale** library into your project, you need to build a dynamic framework from provided source code and include it into your project, or inlcude the entire **AMXFontAutoScale** library as sub-project by copying it to your project directory or include as git submodule.
+If you are using **CocoaPods**, you can as well use it to integrate the library by adding the following lines to your `Podfile`.
+
+```ruby
+use_frameworks!
+
+target 'YourAppTarget' do
+    pod "AMXFontAutoScale"
+end
+
+```
 
 #### Carthage
 
@@ -106,19 +151,9 @@ If you are using **Carthage**, you can always use it to build the library within
 github "alexmx/AMXFontAutoScale"
 ```
 
-#### CocoaPods
+#### Manual installation
 
-If you are using **CocoaPods**, you can as well use it to integrate the library by adding the following lines to your `Podfile`.
-
-```ruby
-platform :ios, '8.0'
-use_frameworks!
-
-target 'YourAppTarget' do
-    pod "AMXFontAutoScale"
-end
-
-```
+In order to include the **AMXFontAutoScale** library into your project, you need to build a dynamic framework from provided source code and include it into your project, or include the entire **AMXFontAutoScale** library as sub-project by copying it to your project directory or include as git submodule.
 
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
