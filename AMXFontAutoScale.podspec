@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name          = "AMXFontAutoScale"
-  s.version       = "1.1.3"
+  s.version       = "1.2.0"
   s.summary       = "Scale the font for UILabel and UITextView proportionally across all the screen sizes."
 
   s.description   = <<-DESC
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.homepage              = "https://github.com/alexmx/AMXFontAutoScale"
   s.license               = "MIT"
-  s.authors               = { "Alex Maimescu" => "maimescu.alex@gmail.com" }
+  s.authors               = { "Alex Maimescu" }
 
   s.platform              = :ios
   s.ios.deployment_target = '8.0'
