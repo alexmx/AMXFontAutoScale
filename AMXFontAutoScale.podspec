@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.homepage              = "https://github.com/alexmx/AMXFontAutoScale"
   s.license               = "MIT"
-  s.authors               = { "Alex Maimescu" }
+  s.authors               = "Alex Maimescu"
 
   s.platform              = :ios
   s.ios.deployment_target = '8.0'
